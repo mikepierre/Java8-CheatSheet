@@ -187,7 +187,7 @@ res = stream.limit(3);
 Discarding the first n elements
 
 ```java
-res = strem.skip(2); // skip Bohr and Darwin
+res = stream.skip(2); // skip Bohr and Darwin
 //> Galilei Tesla Einstein Newton
 ```
 
@@ -225,7 +225,7 @@ faster than findFirst on parallel streams
 
 ### Primitive-Type Streams
 
-Wrappers (like Stream<Integer>) are inefficients. It requires a lot of unboxing and boxing for each element. Better to use `IntStream`, `DoubleStream`, etc.
+Wrappers (like Stream<Integer>) are inefficient. It requires a lot of unboxing and boxing for each element. Better to use `IntStream`, `DoubleStream`, etc.
 
 **Creation**
 
@@ -323,7 +323,7 @@ Optional<Double> squareRoot(double x) {
 
 ---
 
-**Note on inferance limitations**
+**Note on inference limitations**
 
 ```java
 interface Pair<A, B> {
@@ -335,7 +335,7 @@ interface Pair<A, B> {
 A steam of type `Stream<Pair<String, Long>>` :
 
  - `stream.sorted(Comparator.comparing(Pair::first)) // ok`
- - `stream.sorted(Comparator.comparing(Pair::first).thenComparing(Pair::second)) // dont work`
+ - `stream.sorted(Comparator.comparing(Pair::first).thenComparing(Pair::second)) // don't work`
 
 Java cannot infer type for the `.comparing(Pair::first)` part and fallback to Object, on which `Pair::first` cannot be applied.
 
